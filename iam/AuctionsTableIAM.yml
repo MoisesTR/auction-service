@@ -1,0 +1,16 @@
+AuctionsTableIAM:
+  Effect: Allow
+  Action:
+    # dynamodb:* #allows all the dynamo db actions
+    - dynamodb:PutItem
+    - dynamodb:Scan
+    - dynamodb:GetItem
+    - dynamodb:UpdateItem
+    - dynamodb:Query
+  Resource:
+    # The # symbol will be interpolated by the serverless pseudo parameters plugin
+    - ${self:custom.AuctionsTable.arn}
+    # We need to specify the arn of the virtual table of dynamodb
+    # Use the Join intrinsic function
+    # The Join function it will take the elements inside of the array of the second param and join them with the '/' as a delimiter between them
+    - !Join ['/', [ '${self:custom.AuctionsTable.arn}', 'index', 'statusAndEndDate' ]]

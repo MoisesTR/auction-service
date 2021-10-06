@@ -1,0 +1,27 @@
+AuctionsTable:
+  Type: AWS::DynamoDB::Table
+  Properties:
+    # self refers to the yaml file
+    TableName: AuctionsTable-${self:provider.stage}
+    BillingMode: PAY_PER_REQUEST
+    # We need to define the ID key
+    AttributeDefinitions:
+      - AttributeName: id
+      # S stands for String
+        AttributeType: S
+      - AttributeName: status
+        AttributeType: S
+      - AttributeName: endingAt
+        AttributeType: S
+    KeySchema:
+      - AttributeName: id
+        KeyType: HASH
+    GlobalSecondaryIndexes:
+      - IndexName: statusAndEndDate
+        KeySchema:
+          - AttributeName: status
+            KeyType: HASH
+          - AttributeName: endingAt
+            KeyType: RANGE
+        Projection:
+            ProjectionType: ALL

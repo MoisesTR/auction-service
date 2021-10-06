@@ -1,0 +1,67 @@
+{
+  "serverlessConsole.services": [
+    {
+      "type": "dynamodb",
+      "title": "AuctionsTable-dev",
+      "tableName": "AuctionsTable-dev",
+      "awsProfile": "mtrigueros",
+      "region": "us-east-1"
+    },
+    {
+      "type": "custom",
+      "title": "Create auction",
+      "timeOffsetInMs": 0,
+      "awsProfile": "mtrigueros",
+      "items": [
+        {
+          "title": "/aws/lambda/auction-service-dev-createAuction",
+          "tabs": [
+            {
+              "region": "us-east-1",
+              "title": "dev",
+              "logs": "/aws/lambda/auction-service-dev-createAuction"
+            }
+          ]
+        },
+        {
+          "title": "/aws/lambda/auction-service-dev-createAuction",
+          "tabs": [
+            {
+              "region": "us-east-1",
+              "title": "dev",
+              "logs": "/aws/lambda/auction-service-dev-createAuction"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "title": "Process auctions",
+      "timeOffsetInMs": 0,
+      "awsProfile": "mtrigueros",
+      "items": [
+        {
+          "title": "/aws/lambda/auction-service-dev-processAuctions",
+          "tabs": [
+            {
+              "region": "us-east-1",
+              "title": "dev",
+              "logs": "/aws/lambda/auction-service-dev-processAuctions"
+            }
+          ]
+        },
+        {
+          "title": "/aws/lambda/auction-service-dev-createAuction",
+          "tabs": [
+            {
+              "region": "us-east-1",
+              "title": "dev",
+              "logs": "/aws/lambda/auction-service-dev-createAuction"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
